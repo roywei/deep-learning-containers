@@ -137,7 +137,7 @@ def main():
     args = parser.parse_args()
     args.world_size = dist.get_world_size()
     args.rank = rank = dist.get_rank()
-    args.local_rank = local_rank = os.environ['OMPI_COMM_WORLD_LOCAL_RANK']
+    args.local_rank = local_rank = int(os.environ['OMPI_COMM_WORLD_LOCAL_RANK'])
     args.lr = 1.0
     args.batch_size //= args.world_size // 8
     args.batch_size = max(args.batch_size, 1)
