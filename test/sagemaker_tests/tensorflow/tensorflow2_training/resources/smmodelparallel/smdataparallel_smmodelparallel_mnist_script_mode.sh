@@ -4,5 +4,5 @@
 
 set -ex
 
-smddp_singlenode_dev python smdataparallel_mnist.py
+smddprun python smdataparallel_mnist.py
 mpirun --allow-run-as-root -np 2 python tf2_conv.py
