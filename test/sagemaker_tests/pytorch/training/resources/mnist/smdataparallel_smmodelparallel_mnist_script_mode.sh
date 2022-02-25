@@ -3,8 +3,7 @@
 # SPDX-License-Identifier: MIT-0
 
 set -ex
-# SMDDPv1.4.0 no longer supports single node mode, it's for internal debug only
-# no user logic will use this function
-#smddpsinglenode python smdataparallel_mnist.py
+
+smddp_singlenode_dev python smdataparallel_mnist.py
 
 bash smmodelparallel_mnist_script_mode.sh

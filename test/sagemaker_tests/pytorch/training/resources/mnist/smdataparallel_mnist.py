@@ -27,6 +27,10 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 import torch.distributed as dist
 import smdistributed.dataparallel.torch.torch_smddp
 
+# set default instance type to p3.16
+if "SAGEMAKER_INSTANCE_TYPE" not in os.environ:
+    os.environ['SAGEMAKER_INSTANCE_TYPE'] = 'ml.p3.16xlarge'
+
 dist.init_process_group(backend='smddp')
 
 # from torchvision 0.9.1, 2 candidate mirror website links will be added before "resources" items automatically
